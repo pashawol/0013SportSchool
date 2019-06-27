@@ -1,4 +1,41 @@
 .s-category {
+	margin-bottom: rem(30);
+
+	.icon{
+		font-size: rem(33);
+		margin-right: rem(10);
+	}
+	&__img-wrap{
+		@include block;
+		border-radius: rem(6);
+		overflow: hidden;
+		margin-bottom: rem(20);
+		// width: rem160px;
+	}
+	&__item{
+		text-align: center;
+		font-weight: bold;
+		display: block;
+		@include media-breakpoint-up(sm) {
+
+			margin-bottom: rem(20);
+		}
+		margin-bottom: rem(30);
+		text-decoration: none !important;
+	}
+	&__text{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include media-breakpoint-down(xs) {
+			flex-direction: column;
+			height: rem(123);
+			align-items: center;
+			text-align: center;
+			border-radius: 6px;
+			border: 1px solid $gray;
+		} 
+	}
 		 
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}

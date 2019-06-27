@@ -1,6 +1,87 @@
+mixin mob-mnu()
+	
+	+b.menu-mobile--js.d-sm-none
+	
+		+e.inner
+			.container
+				.row
+					.col
+						+e.tel(href="tel:8(800)550-73-76")
+							+icon('tel')
+							+e.DIV.text 8 (800) 550-73-76
+								.small Звонок по России бесплатный
+					.col-auto
+						+b.toggle-menu-mobile--js
+							span
+
+				+e.UL.nav
+					+e.LI.item: +e.A.link--active(href='#')
+						+icon('home') 
+					- var nav= {"О нас":"#","КЛИЕНТАМ ":"#","ДОКУМЕНТАЦИЯ":"#","ДЕТСКИЕ СЕКЦИИ":"#","ГАЛЕРЕЯ":"#","Расписание":"#","Школы":"#","Новости":"#","Тренеры":"#","КОНТАКТЫ":"#"}
+						each linkPatch, linkName in nav
+							+e.LI.item: +e.A.link(href= linkPatch)= linkName 
+				 
+				
+	//  мобильное меню
 mixin top-line()
 	// start .top-line
 	+b.top-line.block-with-lazy
-		.container
-			.row top-line
+		.container 
+			.row
+				.col-12.order-sm-last
+					+e.body
+						+e.body-bg
+						.row
+							.col-4
+								.d-none.d-sm-block
+									+e.dropdown(href="#")
+										+e.DIV.icon-wrap
+											+icon("mark")
+										+e.DIV.text
+											+e.label Ваш город:
+											div.h3  Звенигород
+								+e.tel-link.d-sm-none(href="tel:8(800)550-73-76")
+									+icon('tel')
+
+							.col
+								+e.logo-wrap
+									a(href="/")
+										img(src="img/logo.png", alt="")
+							.col-4.text-right
+								.d-none.d-sm-block
+									+e.dropdown.popup-with-move-anim(href="#modal-call")
+										+e.DIV.icon-wrap
+											+icon("envilope")
+										+e.DIV.text 
+											div.h3 Контакты
+								+b.toggle-menu-mobile--js.d-sm-none
+									span
+				.col-auto
+					.d-none.d-sm-block
+						+e.item(href="tel:8(800)550-73-76")
+							+icon('tel')
+							+e.DIV.text.h3 8 (800) 550-73-76
+								.small Звонок по России бесплатный
+					+e.dropdown.d-sm-none(href="#")
+						+e.DIV.icon-wrap
+							+icon("mark") 
+						div.h3  Звенигород
+				//- .col-sm-3
+				.col.d-sm-block.d-none
+					
+					+e.item(href="#")
+						+icon('whatsapp')
+						+e.DIV.text Написать в WhatsApp
+				
+					//- +e.logo(href="#")
+					//- 	img(src="img/logo.png", alt="")
+				.col-auto
+					+e.item(href="#")
+						+icon('inner')
+						.h3 Личный кабинет
+				.col-auto.d-sm-none
+					+e.dropdown(href="#")
+						+e.DIV.icon-wrap
+							+icon("envilope")
+						div.h3 Контакты
 	// end .top-line

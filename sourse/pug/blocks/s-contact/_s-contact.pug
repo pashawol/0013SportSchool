@@ -1,9 +1,33 @@
 mixin s-contact()
-	// start s-contact
-	+b.s-contact.section.block-with-lazy#s-contact&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 s-contact
+	+b.section
+		+e.head.bg-pattern
+			.row.justify-content-center
+
+				+e.col.col-sm-auto.col
+					+e.link(href="tel:8(800)550-73-76")
+						+icon("tel")
+						span.text-body 8 (800) 550-73-76
 				
-			.row
-	// end s-contact
+				+e.col.col-sm-auto.col
+					+e.link.tdu(href="mailto:example@mail.ru")
+						+icon("envilope")
+						span.text-body example@mail.ru
+				
+				.col-sm-auto
+					.link
+						+icon("mark")
+						| Фрунзенская набережная, д. 30, строение 5, офис 22А
+		p Станция метро «Фрунзенская», выход из метро направо в сторону Комсомольского проспекта, далее через подземный переход 5 минут пешком.
+	+b.s-contact
+		+e.map-block
+			<script   async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4e7f9ea535c665c927c79724fa9b0bbdfbbf367c7ed2266fe8a7bfa54e5e1c69&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
+		+form-wrap(class="border-top-xs")
+			+e.head.text-center Обратная связь
+			+e.body
+				+input("text","Ваше Имя")(required) 
+				+input("tel","Номер телефона")(required)
+				+input("email","Ваш email")(required)
+				+ta("Сообщение")(required)
+				//- +text( "Комментарий")
+				+polite()
+				+e.btn(type="submit"  )  Отправить

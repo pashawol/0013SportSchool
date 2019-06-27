@@ -1,0 +1,44 @@
+extends layout/main.pug
+
+
+include ../blocks/s-content/_s-content.pug
+include ../blocks/s-contact/_s-contact.pug
+include ../blocks/s-category/_s-category.pug
+include ../blocks/s-menu/_s-menu.pug
+include ../blocks/s-sports-head/_s-sports-head.pug
+include ../blocks/s-news-block/_s-news-block.pug
+
+block title
+	title Футбол
+
+block pagecontent
+	+mob-mnu()
+	+header()
+		+top-line()
+		+top-nav()
+	.container
+		+b.page-head
+			+breadcrumb("Главная  ","Виды спорта")
+			h1 Футбол
+		+s-sports-head
+
+		+b.section-title.text-center.border-top-xs
+			h2 Филиалы
+		.carusel-wrap
+			+b.carusel--school.--js.swiper-container
+				.swiper-wrapper
+					mixin sl(x, t)
+						+e.slide.swiper-slide
+							+e.title.text-center
+								.h2.text-primary.fw-500= t
+								.fw-500 г. Звенигород
+							+e.img-bg.img-bg(data-background=`img/schools-${x}.jpg` class="swiper-lazy" )
+								img.img-bg( class="swiper-lazy" src="#" data-src=`img/schools-${x}.jpg`, alt="") 
+						// /+e.slide.swiper-slide
+					+sl("1","Школа №26")
+					+sl("2","Школа №11 им. В.И. Ленина")
+					+sl("3","Школа №8")
+			+control-sl()
+	+s-news-block()
+	+footer()
+

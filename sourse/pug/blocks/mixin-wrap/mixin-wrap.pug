@@ -16,42 +16,35 @@ mixin pugin()
 	nav(aria-label='...')
 		ul.pagination.justify-content-center
 			li.page-item.disabled
-				a.page-link(href='#', tabindex='-1') 
-					i(class="fas fa-chevron-left")
-			li.page-item.disabled
-				a.page-link.d-none.d-md-block(href='#', tabindex='-1') Назад
+				a.page-link(href='#', tabindex='-1')  «
 
 			li.page-item
 				a.page-link(href='#') 1
 			li.page-item.active
 				a.page-link(href='#')
-					| 2 
-					span.sr-only (current)
-			li.page-item
-				a.page-link.page-link-more(href='#') ...
+					| 2   
 			li.page-item
 				a.page-link(href='#') 3
 
 			li.page-item
-				a.page-link.d-none.d-md-block(href='#') Дальше
-			li.page-item
-				a.page-link(href='#') 
-					i(class="fas fa-chevron-right")
+				a.page-link(href='#')  »
 //- h2.yel(class="  wow fadeInUp animated " data-wow-offset="120" data-wow-duration="1.2s")  
-mixin arrow()
-	.swiper-button-hand.swiper-button-hand-next.swiper-button-next
-		+icon('chevron-right')
-	.swiper-button-hand.swiper-button-hand-prev.swiper-button-prev
-		+icon('chevron-left')
 		
  
 mixin soc()
 	+b.soc
-		mixin item()
-			+e.A.item(href="" target="_blank"): i(class="fab")&attributes(attributes)
-		+item()(class="fa-twitter")
-		+item()(class=" fa-facebook")
-		+item()(class="fa-google-plus")
+		+e.A.item(href="#" target="_blank")
+			+e.icon-wrap
+				+icon("vk")
+			+e.title Мы в Контакте
+		+e.A.item(href="#" target="_blank")
+			+e.icon-wrap
+				+icon("instagram")
+			+e.title Мы в Instagram
+		+e.A.item(href="#" target="_blank")
+			+e.icon-wrap
+				+icon("fb")
+			+e.title Мы в Facebook
 //- WP menu
 //- mixin mnu()
 //- 	- var nav= { "Наши работы":"#","Цены":"#","Калькулятор":"#","Акции":"#" ,"Заказать":"#"}
@@ -67,7 +60,135 @@ mixin soc()
 //- 			li.menu-item: a(href="#")= linkName
 
 mixin mnu()
-	- var nav= {"Продукция ":"#","Услуги  ":"#","Подбор септика   ":"#","Акции ":"#"," О компании  ":"#"," Доставка и оплата ":"#"," Клиентам  ":"#"," Наши работы   ":"#","Контакты ":"#"}
+	- var nav= {"О нас":"#","Виды спорта":"#","Расписание":"#","Школы":"#","Тренеры":"#","Новости":"#"}
 	+e.UL.nav
+		+e.LI.item: +e.A.link--active(href='#')
+			+icon('home') 
 		each linkPatch, linkName in nav
-			+e.LI.item: +e.A.link(href= linkPatch)= linkName
+			+e.LI.item: +e.A.link(href= linkPatch)= linkName 
+
+mixin arrow()
+	+b.swiper-button-hand--next.swiper-button-next 
+		+icon('chevron-left')
+	+b.swiper-button-hand--prev.swiper-button-prev 
+		+icon('chevron-left')
+	
+mixin control-sl()
+	.control-wrap
+		+arrow()
+		.swiper-pagination
+
+mixin slider()
+	+b.slider--js.swiper-container
+		.swiper-wrapper
+			+e.slide.swiper-slide
+				+e.img-bg.img-bg(data-background="img/head-sl-1.jpg" class="swiper-lazy" )
+					img.img-bg( class="swiper-lazy" src="#" data-src=`img/head-sl-1.jpg`, alt="")
+			
+			+e.slide.swiper-slide
+				+e.img-bg.img-bg(data-background="img/head-sl-2.jpg" class="swiper-lazy" )
+					img.img-bg( class="swiper-lazy" src="#" data-src=`img/head-sl-2.jpg`, alt="")
+			
+			+e.slide.swiper-slide
+				+e.img-bg.img-bg(data-background="img/head-sl-1.jpg" class="swiper-lazy" )
+					img.img-bg( class="swiper-lazy" src="#" data-src=`img/head-sl-1.jpg`, alt="")
+			
+	+control-sl()
+mixin slider-trener()
+	+b.slider--js.swiper-container
+		.swiper-wrapper
+			+e.slide.swiper-slide
+				+e.img-bg.img-bg(data-background="img/trener-sl.jpg" class="swiper-lazy" )
+					img.img-bg( class="swiper-lazy" src="#" data-src=`img/trener-sl.jpg`, alt="")
+			
+			+e.slide.swiper-slide
+				+e.img-bg.img-bg(data-background="img/head-sl-2.jpg" class="swiper-lazy" )
+					img.img-bg( class="swiper-lazy" src="#" data-src=`img/head-sl-2.jpg`, alt="")
+			
+			+e.slide.swiper-slide
+				+e.img-bg.img-bg(data-background="img/head-sl-1.jpg" class="swiper-lazy" )
+					img.img-bg( class="swiper-lazy" src="#" data-src=`img/head-sl-1.jpg`, alt="")
+			
+	+control-sl()
+
+mixin card-item(i,t,tn, p, strong)
+	+b.card-item.block-with-lazy
+		+e.img-wrap.img-bg
+			img.lazy-bg(src="#" data-src=`img/${i}.jpg`, alt="")
+		+e.caption.bg-pattern
+			+e.title
+				.ttu= t
+				if tn
+					+e.title-name=tn
+			if !tn
+				.strong Группы:
+				+e.text 3 - 7 лет, 7 - 12 лет, 12 - 15 лет
+			
+			if p
+				+e.text= p
+			
+			+e.footer
+				if tn
+					+e.row.row
+						.col-6
+							a.btn.btn-primary.btn-block(href="#") Подробнее
+						
+						.col-6
+							a.btn.btn-info.btn-block(href="#") Записаться
+				else
+					a.btn.btn-info.btn-block(href="#") Записаться
+	// /.card-item
+mixin card-item2(i,t,tn, p, strong)
+	+b.card-item.block-with-lazy
+		+e.img-wrap.img-bg
+			img.lazy-bg(src="#" data-src=`img/${i}.jpg`, alt="")
+		+e.caption.bg-pattern
+			+e.title
+				.ttu= t
+				if tn
+					+e.title-name=tn
+			if !tn
+				.strong Группы:
+				+e.text 3 - 7 лет, 7 - 12 лет, 12 - 15 лет
+			
+			if p
+				+e.text= p
+			
+			+e.footer 
+				a.btn.btn-primary.btn-block(href="#") Расписание
+	// /.card-item
+
+mixin school-sl()
+	+b.slider--js.swiper-container
+		.swiper-wrapper
+			- for (var x = 1; x < 4; x++)
+				+e.slide.swiper-slide
+					+e.img-bg.img-bg(data-background=`img/schools-${x}.jpg` class="swiper-lazy" )
+						img.img-bg( class="swiper-lazy" src="#" data-src=`img/schools-${x}.jpg`, alt="") 
+				// /+e.slide.swiper-slide
+	+control-sl()
+
+mixin icons()
+	+e.roww
+		mixin iconn(i,t) 
+			+e.icon-wrap(data-title= t)
+				+icon(i)
+		+iconn("football","Футбол")
+		+iconn("fitness","Фитнес")
+		+iconn("basketball","Баскетбол")
+		+iconn("hockey","Хоккей")
+		+iconn("volleyball","Волейбол")
+		+iconn("chess","Шахматы")
+mixin icons2()
+	+e.roww.row.justify-content-sm-between.justify-content-center
+		mixin iconn(i,t)
+			.col-auto
+				+e.icon-wrap()
+					+icon(i)
+					.d-none.d-sm-block=t
+		+iconn("football","Футбол")
+		+iconn("fitness","Фитнес")
+		+iconn("basketball","Баскетбол")
+		+iconn("hockey","Хоккей")
+		+iconn("volleyball","Волейбол")
+		+iconn("chess","Шахматы")

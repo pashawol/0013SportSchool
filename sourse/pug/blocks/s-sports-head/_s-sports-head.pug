@@ -1,0 +1,28 @@
+mixin s-sports-head()
+	// start s-sports-head
+	+b.s-sports-head.section.block-with-lazy#s-sports-head&attributes(attributes)
+		.row
+			.col.bd-bottom
+				.row
+					.col-6
+						+e.img-wrap.img-bg
+							img.lazy-bg(src="#" data-src="img/sport-img.jpg", alt="")
+					.col-6
+						p Академия Гефест была основана в 2018 году. Идея создания Академии пришла к одному из руководителей ГК Гефест Вакуленко Дмитрию, который многие годы работает на рынке строительства жилья в Подмосковье. Количество жилых комплексов в Подмосковье растет год от года, количество жителей увеличивается, и важность улучшения среды для проживания с каждым годом становится значимей.  Академия Гефест была основана в 2018 году. Идея создания Академии пришла к одному из руководителей ГК Гефест Вакуленко Дмитрию, который многие годы работает на рынке строительства жилья в Подмосковье.
+				+e.btn(href="#") Оставить заявку
+			.col-4
+				+b.slider--js.swiper-container
+					.swiper-wrapper
+						+e.slide.swiper-slide
+							+card-item2("trener-1","Зайцев","Анатолий Львович","Футбольный тренер","")
+						// /+e.slide.swiper-slide
+						+e.slide.swiper-slide
+							+card-item2("trener-2","Сидорова","Диана Васильевна","Тренер по волейболу","")
+						// /+e.slide.swiper-slide
+						
+
+						+e.slide.swiper-slide
+							+card-item2("trener-3","Петров","Степан Эдуарович","Тренер по плаванию","")
+						// /+e.slide.swiper-slide
+				+control-sl()
+	// end s-sports-head

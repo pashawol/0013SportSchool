@@ -1,0 +1,14 @@
+mixin s-news-block()
+	// start s-news-block
+	+b.SECTION.s-news-block.section.block-with-lazy#s-news-block&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h2 Новости школы
+				
+			ul
+				- for (var x = 0; x < 8; x++)
+					li.strong
+						span.text-gray 10.03.2018 / 
+						| 
+						a(href="#") Академия Гефест была основана в 2018 году.
+	// end s-news-block

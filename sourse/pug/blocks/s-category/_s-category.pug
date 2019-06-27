@@ -1,9 +1,20 @@
 mixin s-category()
-	// start s-category
-	+b.SECTION.s-category.section.block-with-lazy#s-category&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 s-category
-				
-			.row
-	// end s-category
+		// start s-category
+		+b.s-category.bd-bottom.block-with-lazy#s-category&attributes(attributes)
+				.row
+					mixin item(img, i,t)
+						.col-sm-2.col-6
+							+e.item(href="#")
+								+e.DIV.img-wrap.img-bg.d-none.d-sm-block
+									img.lazy-bg(src="#" data-src=`img/category-${img}.jpg`, alt="")
+								+e.text
+									+icon(i)
+									= t
+						// /.col-sm-2.col-6
+					+item("1","football","Футбол")
+					+item("2","fitness","Фитнес")
+					+item("3","basketball","Баскетбол")
+					+item("4","hockey","Хоккей")
+					+item("5","volleyball","Волейбол")
+					+item("6","chess","Шахматы")
+		// end s-category

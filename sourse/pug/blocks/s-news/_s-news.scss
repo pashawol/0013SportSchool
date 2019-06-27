@@ -1,0 +1,66 @@
+.s-news {
+
+	&__img-wrap{
+		display: block;
+		border-radius: rem(6);
+		@include block(161, 133);
+		&--sm{
+			
+			width: rem(161);
+		}
+		&--lg{
+			width: rem(348);
+
+		}
+		float: left;
+		margin-right: rem(30);
+		margin-bottom: rem(15);
+	}
+	&__title{
+		@extend .h2;
+		@extend .strong;
+		margin-bottom: 1rem;
+	}
+	p{
+		line-height: 1.3;
+	}
+	&__foot{
+		text-align: right;
+		margin-bottom: rem(-15);
+		a{
+			position: relative;
+			background-color: #ffffff;
+			display: inline-block;
+			padding-left: rem(30);
+		}
+	}
+
+	&__item{
+		margin-bottom: rem(25);
+	}
+		 
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-up(xs) {}
+	
+	//
+	@include media-breakpoint-between(md, xl) { }
+	
+	
+	//
+	@include media-breakpoint-only(xs) {}
+	@include media-breakpoint-only(sm) {}
+	@include media-breakpoint-only(md) {}
+	@include media-breakpoint-only(lg) {}
+	@include media-breakpoint-only(xl) {}
+	
+	//
+	@include media-breakpoint-down(xl) {}
+	@include media-breakpoint-down(lg) {}
+	@include media-breakpoint-down(md) {}
+	@include media-breakpoint-down(sm) {}
+	@include media-breakpoint-down(xs) {} 
+
+}

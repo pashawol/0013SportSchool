@@ -1,0 +1,57 @@
+extends layout/main.pug
+
+
+include ../blocks/s-content/_s-content.pug
+include ../blocks/s-contact/_s-contact.pug
+include ../blocks/s-category/_s-category.pug
+include ../blocks/s-menu/_s-menu.pug
+include ../blocks/s-school/_s-school.pug
+
+block title
+	title Наши тренеры
+
+block pagecontent
+	+mob-mnu()
+	+header()
+		+top-line()
+		+top-nav()
+	.container
+		+b.page-head
+			+breadcrumb("Главная  ","Тренеры")
+			h1 Наши тренеры
+		+b.section
+			+e.FORM.head.bg-pattern
+				.row
+					+e.col.col-sm-3.fw-500 Подобрать тренера:
+					.col-sm
+						+e.row.row
+							+e.col.col-sm-auto
+								+select('Выбрать специализацию')
+							
+							+e.col.col-sm-auto
+								+select('Выбрать школу')
+
+					+e.col.col-sm-auto
+						+e.btn(type="button") Подобрать
+			.row
+				+e.col.col-sm-4
+					+card-item("trener-1","Зайцев","Анатолий Львович","Футбольный тренер","")
+				// /+e.col.col-sm-4
+				+e.col.col-sm-4
+					+card-item("trener-2","Сидорова","Диана Васильевна","Тренер по волейболу","")
+				// /+e.col.col-sm-4
+				
+
+				+e.col.col-sm-4
+					+card-item("trener-3","Петров","Степан Эдуарович","Тренер по плаванию","")
+				// /+e.col.col-sm-4
+				+e.col.col-sm-4
+					+card-item("trener-1","Зайцев","Анатолий Львович","Футбольный тренер","")
+				// /+e.col.col-sm-4
+				+e.col.col-sm-4
+					+card-item("trener-2","Сидорова","Диана Васильевна","Тренер по волейболу","")
+				// /+e.col.col-sm-4
+								
+
+	+footer()
+

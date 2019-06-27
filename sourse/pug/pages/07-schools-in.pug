@@ -1,0 +1,50 @@
+extends layout/main.pug
+
+
+include ../blocks/s-content/_s-content.pug
+include ../blocks/s-contact/_s-contact.pug
+include ../blocks/s-category/_s-category.pug
+include ../blocks/s-menu/_s-menu.pug
+include ../blocks/s-schools-head/_s-schools-head.pug
+include ../blocks/s-news-block/_s-news-block.pug
+
+block title
+	title Школа
+
+block pagecontent
+	+mob-mnu()
+	+header()
+		+top-line()
+		+top-nav()
+	.container
+		+b.page-head
+			+breadcrumb("Главная  ","Школы")
+			h1 Школа
+			.fw-500.text-gray г. Звенигород
+		+s-schools-head
+
+		+b.section-title.text-center.border-top-xs
+			h2 Тренеры
+		+b.carusel--js.swiper-container
+			.swiper-wrapper
+				+e.slide.swiper-slide
+					+card-item("trener-1","Зайцев","Анатолий Львович","Футбольный тренер","")
+				// /+e.slide.swiper-slide
+				+e.slide.swiper-slide
+					+card-item("trener-2","Сидорова","Диана Васильевна","Тренер по волейболу","")
+				// /+e.slide.swiper-slide
+				
+
+				+e.slide.swiper-slide
+					+card-item("trener-3","Петров","Степан Эдуарович","Тренер по плаванию","")
+				// /+e.slide.swiper-slide
+				+e.slide.swiper-slide
+					+card-item("trener-1","Зайцев","Анатолий Львович","Футбольный тренер","")
+				// /+e.slide.swiper-slide
+				+e.slide.swiper-slide
+					+card-item("trener-2","Сидорова","Диана Васильевна","Тренер по волейболу","")
+				// /+e.slide.swiper-slide
+		+control-sl()
+	+s-news-block()
+	+footer()
+

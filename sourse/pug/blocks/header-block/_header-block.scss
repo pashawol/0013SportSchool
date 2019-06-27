@@ -1,6 +1,29 @@
 .header-block {
 	display: block;
- 
+	padding-top: rem(26);
+	@include media-breakpoint-up(sm) {
+		padding-bottom: 0;
+	}
+	padding-bottom: rem(30);
+	
+	.form-wrap{
+		// @extend .container
+		padding: rem(10) rem(30);
+		margin-bottom: rem(28);
+		.row{
+			padding-top: rem(20);
+		}
+		&__btn{
+			width: rem(171);
+			@include media-breakpoint-only(sm) {
+				width: rem(161);
+
+			}
+		}
+	}
+	.soc{
+		 margin-bottom: rem(30);
+	}
 	
 	// 
 	@include media-breakpoint-up(xl) {}

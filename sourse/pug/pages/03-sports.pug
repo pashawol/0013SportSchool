@@ -1,0 +1,55 @@
+extends layout/main.pug
+
+
+include ../blocks/s-content/_s-content.pug
+include ../blocks/s-contact/_s-contact.pug
+include ../blocks/s-category/_s-category.pug
+include ../blocks/s-menu/_s-menu.pug
+include ../blocks/s-school/_s-school.pug
+
+block title
+	title Виды спорта
+
+block pagecontent
+	+mob-mnu()
+	+header()
+		+top-line()
+		+top-nav()
+	.container
+		+b.page-head
+			+breadcrumb("Главная  ","Виды спорта")
+			h1 Виды спорта
+		+b.section
+			+e.FORM.head.bg-pattern
+				.row
+					.col-auto.fw-500 Школа:
+					.col
+						+select('Выбрать школу') 
+					.col-auto
+						+e.btn(type="button") Подобрать
+			.row
+
+				+e.col.col-sm-4.col-6
+					+card-item("sport-1","ФУТБОЛ","")
+				// /+e.col.col-sm-4.col-6
+		 		
+				+e.col.col-sm-4.col-6
+					+card-item("sport-2","Фитнес","")
+				// /+e.col.col-sm-4.col-6
+				+e.col.col-sm-4.col-6
+					+card-item("sport-3","Хоккей","")
+				// /+e.col.col-sm-4.col-6
+				+e.col.col-sm-4.col-6
+					+card-item("sport-4","Волейбол","")
+				// /+e.col.col-sm-4.col-6
+				+e.col.col-sm-4.col-6
+					+card-item("sport-5","баскетбол","")
+				// /+e.col.col-sm-4.col-6
+				+e.col.col-sm-4.col-6
+					+card-item("sport-6","Шахматы","")
+				// /+e.col.col-sm-4.col-6
+
+								
+
+	+footer()
+

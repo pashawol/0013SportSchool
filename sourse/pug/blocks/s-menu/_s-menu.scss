@@ -1,5 +1,30 @@
 .s-menu {
 		 
+	&__item{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: rem(247);
+		text-align: center;
+		font-weight: 500;
+		text-transform: uppercase;
+		text-decoration: none !important;
+		padding-top: rem(15);
+		color: $secondary;
+		line-height: 1.4;
+		margin-bottom: rem(30);
+		position: relative;
+		overflow: hidden;
+		img{
+			@extend .res-i;
+			max-height: rem(195);
+			// width: 100%;
+		}
+	}
+	&__img-wrap{
+		min-height: rem(155);
+		margin-top: rem(10);
+	}
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}

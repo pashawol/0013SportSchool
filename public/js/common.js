@@ -13,30 +13,9 @@ jQuery(document).ready(function ($) {
 	JSCCommon.mobileMenu();
 
 	JSCCommon.inputMask();
+ 
 
-	JSCCommon.inlineSVG();
-
-	JSCCommon.CustomInputFile();
-
-	JSCCommon.CustomYoutubeBlock();
-
-
-
-	
-	var url = document.location.href;
-	$.each($(".top-nav__nav a "), function () {
-
-		if (this.href == url) {
-			if ($(this).hasClass("top-nav__link") == true) {
-
-				$(this).addClass('top-nav__link-active');
-			}
-			if ($(this).hasClass("footer__link") == true) {
-
-				$(this).addClass('footer__link-active');
-			} 
-		}; 
-	}); 
+	$(".main-wrapper").after('<div class="screen" style="background-image: url(screen/XL-trenery.png);"></div>')
 	// / закрыть меню при горизонтальном свайпе
 	// /закрыть/открыть мобильное меню
 
@@ -59,7 +38,7 @@ jQuery(document).ready(function ($) {
 			}
 		});
 		// конец добавил
-		if (window.matchMedia("(min-width: 992px)").matches) {
+		if (window.matchMedia("(min-width: 576px)").matches) {
 
 			btnToggle.removeClass("on");
 			// $("body").removeClass("fixed");
@@ -89,93 +68,7 @@ jQuery(document).ready(function ($) {
 	       return false;
 	   }); 
 
-	// var icon = '<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 492.004 492.004" style="enable-background:new 0 0 492.004 492.004;" xml:space="preserve" ><path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12    c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028    c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265    c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z" ></path>';
-
-	// var arrl2 = (' <div class="r">' + icon),
-	// 	arrr2 = (' <div class="l">' + icon);
-	// // карусель
-	// $('.s-team__slider').slick({
-	// 	slidesToShow: 3,
-	// 	slidesToScroll: 1,
-	// 	dots: false,
-	// 	speed: 900,
-	// 	infinite: true,
-	// 	loop: true,
-	// 	arrows: true,
-	// 	mobileFirst: true,
-	// 	// centerMode: true,
-	// 	// focusOnSelect: true ,
-	// 	// variableWidth: true,
-	// 	prevArrow: arrr2,
-	// 	nextArrow: arrl2,
-	// });
-
-	$('.s-gal__slider\
-	,.slider-for2 ')
-		.on('lazyLoaded', function (event, slick, image, imageSource) {
-			image.parent().css('background-image', 'url(' + image.attr('src') + ')');
-		});
-	// slider
-	// var swiper4 = new Swiper('.color-slider', {
-	// 	// slidesPerView: 5,
-	// 	slidesPerView: 'auto',
-	// 	watchOverflow: true,
-	// 	spaceBetween: 0,
-	// 	freeMode: true,
-	// 	watchOverflow: true,
-	// 	slidesPerGroup: 3,
-
-	// 	// centeredSlides: true,
-	// 	loop: true,
-	// 	loopFillGroupWithBlank: true,
-	// 	touchRatio: 0.2,
-	// 	slideToClickedSlide: true,
-	// 	freeModeMomentum: true,
-	// 	navigation: {
-	// 		nextEl: '.swiper-button-next',
-	// 		prevEl: '.swiper-button-prev',
-	// 	},
-
-	// });
-	// modal window
-
-
-	// form
-	$("form").submit(function () { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: 'action.php', //Change
-			data: th.serialize()
-		}).success(function () {
-			$.magnificPopup.close();
-			$.magnificPopup.open({
-				items: {
-					src: '#thanks', // can be a HTML string, jQuery object, or CSS selector
-					type: 'inline'
-				}
-			})
-			// window.location.replace("/thanks.html");
-			setTimeout(function () {
-				// Done Functions
-				th.trigger("reset");
-				// $.magnificPopup.close();
-			}, 4000);
-		});
-		return false;
-	});
-	// /form
- 
-	// или
-	// $(".dropzone").dropzone({
-	//  url: "/file/post",
-	//  addRemoveLinks: true,
-	//      acceptedFiles: 'image/*',
-	//      uploadMultiple: true,
-	//   });
-
-
-
+  
 
 	// $(".wow-wrap").each(function () {
 	// var wowAnim = $(this).find(".s-dop__col," +
@@ -190,113 +83,144 @@ jQuery(document).ready(function ($) {
 
 	// });
 	// });
+		 
+		 $('.slider--js').each(function(){
 
+			 var swiper2 = new Swiper($(this), {
+				 slidesPerView: 1,
+				 watchOverflow: true,
+				 spaceBetween: 0,
+				 lazy: {
+					 loadPrevNext: true,
+					},
+					pagination: {
+						el: $(this).next().find('.swiper-pagination'),
+						clickable: true,
+					},
+					
+					navigation: {
+						nextEl: $(this).next().find('.swiper-button-next'),
+						prevEl: $(this).next().find('.swiper-button-prev'),
+					},
+					loop: true,
+				}); 
+			})
+			
+		 $('.carusel--js').each(function(){
+
+			 var swiper2 = new Swiper($(this), {
+				 slidesPerView: 3,
+				 watchOverflow: true,
+				 
+				//  spaceBetween: 30,
+				 lazy: {
+					 loadPrevNext: true,
+					},
+					pagination: {
+						el: $(this).next().find('.swiper-pagination'),
+						clickable: true,
+					},
+					
+					navigation: {
+						nextEl: $(this).next().find('.swiper-button-next'),
+						prevEl: $(this).next().find('.swiper-button-prev'),
+					},
+					loop: true,
+					breakpoints: {
+					 
+						575.99: {
+							slidesPerView: 1 
+						}
+					}
+				}); 
+			})
 
 });
 JSCCommon = {
 	// часть вызов скриптов здесь, для использования при AJAX
 	// функции для запуска lazy
-	lazyShow: function (lazyLoad) {
-		document.removeEventListener("scroll", lazyLoad);
-		window.removeEventListener("resize", lazyLoad);
-		window.removeEventListener("orientationchange", lazyLoad);
-		window.addEventListener("DOMContentLoaded", lazyLoad);
-	},
-	LazyFunction: function () {
-		// лэзи 
+	LazyFunction: function() {
+		// Для лэзи загрузки 
+
 		document.addEventListener("DOMContentLoaded", function () {
-			var lazyBg = [].slice.call(document.querySelectorAll(".lazy-bg"));
 			var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 			var active = false;
 
+			const lazyLoad = function () {
+				if (active === false) {
+					active = true;
 
-			LazyFunction: function() {
-				// Для лэзи загрузки 
-		
-				document.addEventListener("DOMContentLoaded", function () {
-					var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-					var active = false;
-		
-					const lazyLoad = function () {
-						if (active === false) {
-							active = true;
-		
-							setTimeout(function () {
-								lazyImages.forEach(function (lazyImage) {
-									if (((lazyImage.getBoundingClientRect().top - lazyImage.closest(".block-with-lazy").clientHeight * 2) <= window.innerHeight && (lazyImage.getBoundingClientRect().bottom + lazyImage.closest(".block-with-lazy").clientHeight * 2) >= 0) && getComputedStyle(lazyImage).display !== "none") {
-										lazyImage.src = lazyImage.dataset.src;
-										// lazyImage.srcset = lazyImage.dataset.srcset;
-										lazyImage.classList.remove("lazy");
-		
-										lazyImages = lazyImages.filter(function (image) {
-											return image !== lazyImage;
-										});
-		
-										if (lazyImages.length === 0) {
-											document.removeEventListener("scroll", lazyLoad);
-											window.removeEventListener("resize", lazyLoad);
-											window.removeEventListener("orientationchange", lazyLoad);
-											window.addEventListener("DOMContentLoaded", lazyLoad);
-										}
-									}
-								});
-		
-								active = false;
-							}, 200);
-						}
-					};
-		
-					document.addEventListener("scroll", lazyLoad);
-					window.addEventListener("resize", lazyLoad);
-					window.addEventListener("orientationchange", lazyLoad);
-					window.addEventListener("DOMContentLoaded", lazyLoad);
-				});
-		
-		
-				// лэзи 
-				document.addEventListener("DOMContentLoaded", function () {
-					var lazyImages = [].slice.call(document.querySelectorAll(".lazy-bg"));
-					var active = false;
-		
-					const lazyLoad = function () {
-						if (active === false) {
-							active = true;
-		
-							setTimeout(function () {
-								lazyImages.forEach(function (lazyImage) {
-									if (((lazyImage.getBoundingClientRect().top - lazyImage.closest(".block-with-lazy").clientHeight * 2) <= window.innerHeight && (lazyImage.getBoundingClientRect().bottom + lazyImage.closest(".block-with-lazy").clientHeight * 2) >= 0) && getComputedStyle(lazyImage).display !== "none") {
-										lazyImage.parentElement.style.backgroundImage = 'url(' + lazyImage.dataset.src + ')';
-										lazyImage.src = lazyImage.dataset.src;
-										// lazyImage.srcset = lazyImage.dataset.srcset;
-										lazyImage.classList.remove("lazy");
-		
-										lazyImages = lazyImages.filter(function (image) {
-											return image !== lazyImage;
-										});
-		
-										if (lazyImages.length === 0) {
-											document.removeEventListener("scroll", lazyLoad);
-											window.removeEventListener("resize", lazyLoad);
-											window.removeEventListener("orientationchange", lazyLoad);
-											window.addEventListener("DOMContentLoaded", lazyLoad);
-										}
-									}
-								});
-		
-								active = false;
-							}, 200);
-						}
-					};
-		
-					document.addEventListener("scroll", lazyLoad);
-					window.addEventListener("resize", lazyLoad);
-					window.addEventListener("orientationchange", lazyLoad);
-					window.addEventListener("DOMContentLoaded", lazyLoad);
-				});
-		
-			},
+					setTimeout(function () {
+						lazyImages.forEach(function (lazyImage) {
+							if (((lazyImage.getBoundingClientRect().top - lazyImage.closest(".block-with-lazy").clientHeight * 2) <= window.innerHeight && (lazyImage.getBoundingClientRect().bottom + lazyImage.closest(".block-with-lazy").clientHeight * 2) >= 0) && getComputedStyle(lazyImage).display !== "none") {
+								lazyImage.src = lazyImage.dataset.src;
+								// lazyImage.srcset = lazyImage.dataset.srcset;
+								lazyImage.classList.remove("lazy");
 
-			JSCCommon.lazyShow(lazyLoad)
+								lazyImages = lazyImages.filter(function (image) {
+									return image !== lazyImage;
+								});
+
+								if (lazyImages.length === 0) {
+									document.removeEventListener("scroll", lazyLoad);
+									window.removeEventListener("resize", lazyLoad);
+									window.removeEventListener("orientationchange", lazyLoad);
+									window.addEventListener("DOMContentLoaded", lazyLoad);
+								}
+							}
+						});
+
+						active = false;
+					}, 200);
+				}
+			};
+
+			document.addEventListener("scroll", lazyLoad);
+			window.addEventListener("resize", lazyLoad);
+			window.addEventListener("orientationchange", lazyLoad);
+			window.addEventListener("DOMContentLoaded", lazyLoad);
+		});
+
+
+		// лэзи 
+		document.addEventListener("DOMContentLoaded", function () {
+			var lazyImages = [].slice.call(document.querySelectorAll(".lazy-bg"));
+			var active = false;
+
+			const lazyLoad = function () {
+				if (active === false) {
+					active = true;
+
+					setTimeout(function () {
+						lazyImages.forEach(function (lazyImage) {
+							if (((lazyImage.getBoundingClientRect().top - lazyImage.closest(".block-with-lazy").clientHeight * 2) <= window.innerHeight && (lazyImage.getBoundingClientRect().bottom + lazyImage.closest(".block-with-lazy").clientHeight * 2) >= 0) && getComputedStyle(lazyImage).display !== "none") {
+								lazyImage.parentElement.style.backgroundImage = 'url(' + lazyImage.dataset.src + ')';
+								lazyImage.src = lazyImage.dataset.src;
+								// lazyImage.srcset = lazyImage.dataset.srcset;
+								lazyImage.classList.remove("lazy");
+
+								lazyImages = lazyImages.filter(function (image) {
+									return image !== lazyImage;
+								});
+
+								if (lazyImages.length === 0) {
+									document.removeEventListener("scroll", lazyLoad);
+									window.removeEventListener("resize", lazyLoad);
+									window.removeEventListener("orientationchange", lazyLoad);
+									window.addEventListener("DOMContentLoaded", lazyLoad);
+								}
+							}
+						});
+
+						active = false;
+					}, 200);
+				}
+			};
+
+			document.addEventListener("scroll", lazyLoad);
+			window.addEventListener("resize", lazyLoad);
+			window.addEventListener("orientationchange", lazyLoad);
+			window.addEventListener("DOMContentLoaded", lazyLoad);
 		});
 
 	},
@@ -372,22 +296,7 @@ JSCCommon = {
 				$("body, html").removeClass("fixed");
 			}
 		});
-		// закрыть меню при горизонтальном свайпе
-		$('.menu-mobile--js.active').swipe({
-			swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-				if (direction == 'left') {
-					btnToggle.removeClass("on");
-					$(".menu-mobile--js.active").removeClass("active");
-					$("body, html").removeClass("fixed");
-				}
-				if (direction == 'right') {
-					btnToggle.removeClass("on");
-					$(".menu-mobile--js.active").removeClass("active");
-					$("body, html").removeClass("fixed");
-				}
-			},
-			triggerOnTouchEnd: false,
-		});
+ 
 	},
 	// /mobileMenu
 
@@ -402,64 +311,7 @@ JSCCommon = {
 		});
 	},
 	// /табы  . 
-
-
-
-	inlineSVG: function () {
-		//Replace all SVG images with inline SVG
-		$('img.img-svg').each(function () {
-			var $img = $(this);
-			var imgClass = $img.attr('class');
-			var imgURL = $img.attr('src');
-
-			$.get(imgURL, function (data) {
-				// Get the SVG tag, ignore the rest
-				var $svg = $(data).find('svg');
-
-				// Add replaced image's classes to the new SVG
-				if (typeof imgClass !== 'undefined') {
-					$svg = $svg.attr('class', imgClass + ' replaced-svg');
-				}
-
-				// Remove any invalid XML tags as per http://validator.w3.org
-				$svg = $svg.removeAttr('xmlns:a');
-
-				// Check if the viewport is set, if the viewport is not set the SVG wont't scale.
-				if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
-					$svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
-				}
-
-
-				// Replace image with new SVG
-				$img.replaceWith($svg);
-
-			}, 'xml');
-
-		});
-	},
-	// /nlineSVG
-	CustomInputFile: function CustomInputFile() {
-		var file = $(".add-file input[type=file]");
-		file.change(function () {
-			var filename = $(this).val().replace(/.*\\/, "");
-			var name = $(".add-file__filename  ");
-			name.text(filename);
-
-		});
-	},
-	// /CustomInputFile
-	CustomYoutubeBlock: function () {
-		$(".pretty-embed__bg").each(function () {
-			// загрузка фона видео
-			$(this).css("background-image", 'url(http://img.youtube.com/vi/' + $(this).data("src") + '/0.jpg)')
-			// включение видео при клике по блоку
-			$(this).click(function () {
-				$(this).removeClass("on").next()
-					.attr("src", 'https://www.youtube.com/embed/' + $(this).data("src") + '?autoplay=1').addClass("on");
-			})
-		})
-
-	},
+  
 	// /CustomYoutubeBlock
 	inputMask: function () {
 		// mask for input

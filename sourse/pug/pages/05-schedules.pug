@@ -1,0 +1,32 @@
+extends layout/main.pug
+
+
+include ../blocks/s-content/_s-content.pug
+include ../blocks/s-contact/_s-contact.pug
+include ../blocks/s-category/_s-category.pug
+include ../blocks/s-menu/_s-menu.pug
+include ../blocks/s-schedules/_s-schedules.pug
+
+block title
+	title Расписание
+
+block pagecontent
+	+mob-mnu()
+	+header()
+		+top-line()
+		+top-nav()
+	.container
+		+b.page-head
+			+breadcrumb("Главная  "," Расписание")
+			h1 Расписание занятий
+		+b.section
+			+e.FORM.head.bg-pattern
+				.row
+					.col-auto.fw-500 Школа:
+					.col
+						+select('Выбрать школу') 
+					.col-auto
+						+e.btn(type="button") Подобрать
+			+s-schedules
+	+footer()
+

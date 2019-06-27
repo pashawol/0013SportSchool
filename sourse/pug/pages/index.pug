@@ -8,17 +8,53 @@ include ../blocks/s-menu/_s-menu.pug
 include ../blocks/s-school/_s-school.pug
 
 block title
-	title title
+	title Все страницы
 
 block pagecontent
 	+mob-mnu()
 	+header()
 		+top-line()
 		+top-nav()
-
-	+header-block()
-	+s-category
-	+s-menu
-	+s-school
+	.container
+		+b.page-head 
+			h1 Все страницы
+		.section.py-5
+			ol.container
+				li.h5
+					a(href="main.html") Главная
+				
+				li.h5
+					a(href="02-treners.html") Наши тренеры
+				
+				li.h5
+					a(href="02-trener-in.html") Тренер
+				
+				li.h5
+					a(href="03-sports.html") Виды спорта
+				
+				li.h5
+					a(href="06-sports-in.html") Виды спорта внутренняя
+				
+				li.h5
+					a(href="04-news.html") Новости Академии
+				
+				li.h5
+					a(href="04-news-in.html") Новость
+				
+				li.h5
+					a(href="05-schedules.html") Расписание
+				
+				li.h5
+					a(href="06-contact.html") Контакты
+				
+			 
+				
+				li.h5
+					a(href="07-schools.html") Школы
+				
+				li.h5
+					a(href="07-schools-in.html") Школа №26
+				
+				
 	+footer()
 

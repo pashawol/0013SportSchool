@@ -1,9 +1,15 @@
-mixin s-menu()
+mixin s-menu() 
 	// start s-menu
-	+b.SECTION.s-menu.section.block-with-lazy#s-menu&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 s-menu
-				
+	+b.s-menu.block-with-lazy#s-menu&attributes(attributes)
 			.row
+				mixin item(img, t)
+					.col-sm-3.col-6
+						+e.item.bg-pattern(href="#")
+							+e.DIV.text= t
+							+e.DIV.img-wrap: img.lazy(src="#" data-src=`img/menu-${img}.png`, alt="") 
+					// /.col-sm-3.col-6
+				+item("1","Пакеты персональных тренировок")
+				+item("2","Рассписание групповых занятий")
+				+item("3","Тренерский коллектив")
+				+item("4","Развитие регионов и сотрудничество")
 	// end s-menu

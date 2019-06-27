@@ -1,0 +1,74 @@
+mixin s-schedules()
+	// start s-schedules
+	+b.s-schedules
+		mixin td()
+			.fw-500 Плавание
+			.small Зайцев А.А.
+			.em.text-gray.small Большой бассейн
+		+e.table-wrap
+			table
+				thead
+					tr
+						th Время
+						th Понедельник
+						th Вторник
+						th Среда
+						th Четверг
+						th Пятница
+						th Суббота
+						th Воскресенье
+				tbody
+					mixin tr(tr1, tr2, tr3)
+						tr
+							td 
+								.fw-500= tr1
+							td 
+								+td
+							td 
+								+td
+							td 
+								+td
+							td 
+								+td
+							td 
+							td 
+							td 
+						// /tr
+						
+						tr
+							td 
+								.fw-500= tr2  
+							td 
+								+td
+							td 
+								+td
+							td 
+								//- +td
+							td 
+							td 
+								+td
+							td 
+							td 
+						// /tr
+						
+						tr
+							td 
+								.fw-500= tr3 
+							td 
+								//- +td
+							td 
+							td 
+								//- +td
+							td 
+								+td
+							td 
+								+td
+							td 
+								+td
+							td 
+						// /tr
+					+tr("09.00","10.00","11.00")
+					+tr("12.00","13.00","14.00")
+					+tr("15.00","16.00","17.00")
+					+tr("18.00","19.00","20.00") 
+	// end s-schedules

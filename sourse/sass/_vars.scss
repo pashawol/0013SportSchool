@@ -38,11 +38,11 @@ $small: rem(14);
 
 
 @mixin roww($a){
-	margin-left: rem(-$a);
-	margin-right: rem(-$a);
+	margin-left: rem(-$a) !important;
+	margin-right: rem(-$a) !important;
 	>*{
-		padding-left: rem($a);
-		padding-right: rem($a);
+		padding-left: rem($a) !important;
+		padding-right: rem($a) !important;
 	}
 }
 
@@ -162,8 +162,12 @@ $small: rem(14);
 @mixin block($w: 1, $h: 1){
   display: block;
   position: relative;
-  height: 0;
-  padding-bottom: ($h/$w *100%);
+  &::before{
+    content: '';
+    display: block;
+    height: 0;
+    padding-bottom: ($h/$w *100%);
+  }
 }
 @mixin round($w){
 	display: -webkit-inline-flex;

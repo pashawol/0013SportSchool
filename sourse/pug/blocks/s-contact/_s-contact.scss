@@ -1,4 +1,36 @@
 .s-contact {
+	padding-bottom: rem(40);
+	&__map-block{
+		height: rem(440);
+		position: relative;
+		> *{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100% !important;
+			height: 100% !important;
+		}
+	}
+	.form-wrap{
+		margin-left: auto;
+		margin-right: auto;
+		max-width: rem(730);
+		@include media-breakpoint-down(xs) {
+			margin-top: rem(30);
+			padding-top: 0;
+		} 
+		&__head{
+			border: none;
+			padding-bottom: 0;
+			@include rfs($h1-font-size);
+		}
+		&__btn{
+			margin-left: auto;
+			margin-right: auto;
+			@extend .btn-block;
+			width: rem(255);
+		}
+	}
 	//
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}

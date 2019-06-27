@@ -1,0 +1,70 @@
+extends layout/main.pug
+
+
+include ../blocks/s-content/_s-content.pug
+include ../blocks/s-contact/_s-contact.pug
+include ../blocks/s-category/_s-category.pug
+include ../blocks/s-menu/_s-menu.pug
+include ../blocks/s-school/_s-school.pug
+include ../blocks/s-artical-head/_s-artical-head.pug
+
+block title
+	title Тренер
+
+block pagecontent
+	+mob-mnu()
+	+header()
+		+top-line()
+		+top-nav()
+	.container
+		+b.page-head
+			+breadcrumb("Главная  ","Тренеры")
+			h1 Иванов дмитрий сергеевич
+			.text-gray.fw-500  Фитнес-тренер. Школа №26, г. Звенигород
+		+s-artical-head
+		+b.section
+			+e.head.bg-pattern
+				.row.justify-content-center
+					.col
+						+e.row-head.row.justify-content-sm-start.justify-content-center
+							+e.col.col-auto
+								+e.btn--longer(type="button") Расписание
+							+e.col.col-auto
+								+e.btn--longer.btn-info(type="button") Записаться
+					+e.col.col-auto
+						.row
+							.col-auto
+								+e.link(href="tel:8(800)550-73-76")
+									+icon("tel")
+									span.text-body 8 (800) 550-73-76
+							
+							.col-auto
+								+e.link.tdu(href="mailto:example@mail.ru")
+									+icon("envilope")
+									span.text-body example@mail.ru
+							
+
+			+b.section-title.text-center.border-top-xs
+				h2 Другие тренеры этой специализации
+			+b.carusel--js.swiper-container
+				.swiper-wrapper
+					+e.slide.swiper-slide
+						+card-item("trener-1","Зайцев","Анатолий Львович","Футбольный тренер","")
+					// /+e.slide.swiper-slide
+					+e.slide.swiper-slide
+						+card-item("trener-2","Сидорова","Диана Васильевна","Тренер по волейболу","")
+					// /+e.slide.swiper-slide
+					
+
+					+e.slide.swiper-slide
+						+card-item("trener-3","Петров","Степан Эдуарович","Тренер по плаванию","")
+					// /+e.slide.swiper-slide
+				 
+					+e.slide.swiper-slide
+						+card-item("trener-3","Петров","Степан Эдуарович","Тренер по плаванию","")
+					// /+e.slide.swiper-slide
+				 
+			+control-sl()
+
+	+footer()
+

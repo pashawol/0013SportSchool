@@ -1,4 +1,34 @@
 mixin footer()
 	+b.FOOTER.footer.block-with-lazy
 		.container
-			h2 footer
+			.row
+				.col-sm-5.order-sm-2
+					+e.head
+						+e.row.row
+							.col-sm-6
+								+e.cont-link(href="tel:8(800)550-73-76")
+									+icon('tel')
+									+e.DIV.text.h3 8 (800) 550-73-76
+										.small Звонок по России бесплатный
+							.col-sm-6
+								+e.cont-link(href="#")
+									+icon('whatsapp')
+									+e.DIV.text Написать в WhatsApp
+					+soc()
+				.col-sm.order-sm-1
+					+e.UL.nav
+						//- +e.LI.item: +e.A.link--active(href='#')
+						//- 	+icon('home') 
+						- var nav= {"О нас":"#","КЛИЕНТАМ ":"#","ДОКУМЕНТАЦИЯ":"#","ДЕТСКИЕ СЕКЦИИ":"#","ГАЛЕРЕЯ":"#","Расписание":"#","Школы":"#","Новости":"#","Тренеры":"#","КОНТАКТЫ":"#"}
+							each linkPatch, linkName in nav
+								+e.LI.item: +e.A.link(href= linkPatch)= linkName 
+				.col-sm-auto.text-center
+					+e.logo(href="/")
+						img.lazy(src="#" data-src="img/logo-footer.png" , alt="")
+					+e.text-copy © 2018-2019 
+						br
+						| 
+						| Академия ГЕФЕСТ 
+						br
+						| 
+						| Все права защищены.

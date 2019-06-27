@@ -1,9 +1,18 @@
 mixin s-school()
 	// start s-school
-	+b.SECTION.s-school.section.block-with-lazy#s-school&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 s-school
-				
-			.row
+	+b.s-school.block-with-lazy
+		.row
+			mixin item(img, t)
+				.col-sm-4.col-6
+					+e.item(href="#")= t
+						+e.img-wrap.img-bg
+							img.lazy-bg(src="#" data-src=`img/school-${img}.jpg`, alt="") 
+						
+				// /.col-sm-4.col-6
+			+item("1","Школа №26 г. Москва")
+			+item("2","Школа №8 г. Звенигород")
+			+item("3","Филиал №3 г. Москва") 
+			+item("4","Школа №26 г. Москва")
+			+item("5","Школа №8 г. Звенигород")
+			+item("6","Филиал №3 г. Москва") 
 	// end s-school
