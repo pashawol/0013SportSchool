@@ -47,6 +47,23 @@
  
 
 .slider{
+	&__caption{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		padding: rem(10) rem(20) rem(20);
+		width: 100%;
+		background-color: rgba($color: #000000, $alpha: .5);
+		color: #ffffff;
+	}
+	&__title{
+		font-size: rem(18);
+		font-weight: bold;
+	}
+	&__btn{
+		@extend .btn;
+		@extend .btn-primary;
+	}
 	border-radius: rem(6px);
 	&__img-bg{
 		@include block(635,389);
